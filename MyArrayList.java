@@ -1,3 +1,7 @@
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
+
 /*
  Implementation of a dynamic array-based list that implements the MyList interface.
  @param <E> the type of element held in this list.
@@ -37,6 +41,16 @@ public class MyArrayList<E> implements MyList<E> {
         size++;
     }
 
+
+    public void add(E item, int index) {
+
+    }
+
+
+    public boolean remove(E item) {
+        return false;
+    }
+
     /*
       Gets the element at the specified index in the list.
       @return - the element at the specified index
@@ -47,6 +61,26 @@ public class MyArrayList<E> implements MyList<E> {
             throw new IndexOutOfBoundsException();
         }
         return (E) elements[index];
+    }
+
+
+    public int indexOf(Object o) {
+        return 0;
+    }
+
+
+    public int lastIndexOf(Object o) {
+        return 0;
+    }
+
+
+    public void sort() {
+
+    }
+
+    @Override
+    public <E1> void addAll(HashSet<E1> set) {
+
     }
 
     /*
@@ -65,6 +99,11 @@ public class MyArrayList<E> implements MyList<E> {
         return removed;
     }
 
+
+    public void clear() {
+
+    }
+
     /*
 
      @return -  the number of elements in the list
@@ -73,6 +112,28 @@ public class MyArrayList<E> implements MyList<E> {
         return size;
     }
 
-    // Implement any other methods specified by the MyList interface
 
+    public boolean contains(Object o) {
+        return false;
+    }
+
+    public void removeDuplicates() {
+        Set<E> set = new HashSet<>();
+        int index = 0;
+        while (index < size) {
+            E element = get(index);
+            if (set.contains(element)) {
+                remove(index);
+            } else {
+                set.add(element);
+                index++;
+            }
+        }
+    }
 }
+
+
+
+// Implement any other methods specified by the MyList interface
+
+

@@ -1,3 +1,6 @@
+import java.util.HashSet;
+import java.util.Set;
+
 public class MyLinkedList<E> implements MyList<E> {
 
     private class Node {
@@ -35,6 +38,16 @@ public class MyLinkedList<E> implements MyList<E> {
     }
 
 
+    public void add(E item, int index) {
+
+    }
+
+
+    public boolean remove(E item) {
+        return false;
+    }
+
+
     public E get(int index) {
         if (index < 0 || index >= size) {
             throw new IndexOutOfBoundsException();
@@ -55,7 +68,27 @@ public class MyLinkedList<E> implements MyList<E> {
     }
 
 
-    public void remove(int index) {
+    public int indexOf(Object o) {
+        return 0;
+    }
+
+
+    public int lastIndexOf(Object o) {
+        return 0;
+    }
+
+
+    public void sort() {
+
+    }
+
+    @Override
+    public <E1> void addAll(HashSet<E1> set) {
+
+    }
+
+
+    public E remove(int index) {
         if (index < 0 || index >= size) {
             throw new IndexOutOfBoundsException();
         }
@@ -82,6 +115,12 @@ public class MyLinkedList<E> implements MyList<E> {
             current.next.prev = current.prev;
         }
         size--;
+        return null;
+    }
+
+
+    public void clear() {
+
     }
 
 
@@ -89,6 +128,28 @@ public class MyLinkedList<E> implements MyList<E> {
         return size;
     }
 
+
+    public boolean contains(Object o) {
+        return false;
+    }
+
     // implement other methods specified by List interface
+    public void removeDuplicates() {
+        Set<E> set = new HashSet<>();
+        Node current = head;
+        Node previous = null;
+        while (current != null) {
+            if (set.contains(current.element)) {
+                previous.next = current.next;
+                size--;
+            } else {
+                set.add(current.element);
+                previous = current;
+            }
+            current = current.next;
+        }
+    }
+
+
 
 }

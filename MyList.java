@@ -1,4 +1,7 @@
-public interface MyList<E> {
+import java.util.HashSet;
+
+public interface MyList<E>
+{
     int size();
     boolean contains(Object o);
     void add(E item);
@@ -12,4 +15,5 @@ public interface MyList<E> {
     void sort();
 
 
+    <E> void addAll(HashSet<E> set);
 }
